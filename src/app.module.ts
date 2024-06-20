@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { BoardsModule } from './boards/boards.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Board } from './boards/board.entitiy';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -11,11 +12,12 @@ import { Board } from './boards/board.entitiy';
       host: 'localhost',
       port: 8000,
       username: 'postgres',
-      password: 'tlsrlf12!',
+      password: '',
       database: 'board-app',
       entities: [Board],
       synchronize: true,
-    })
+    }),
+    AuthModule
   ],
   providers: [],
 })
